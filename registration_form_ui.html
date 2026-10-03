@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration Form</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      /* Smooth gradient from blue on the left to cyan/teal on the right */
+      background: linear-gradient(115deg, #0263f3 0%, #008be3 35%, #00b4cf 70%, #00d3b0 100%);
+      background-attachment: fixed;
+    }
+
+    .card-container {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 40px 36px 32px 36px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #9cb5c9;
+      cursor: pointer;
+      line-height: 1;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+
+    .close-btn:hover {
+      color: #555555;
+    }
+
+    .form-title {
+      text-align: center;
+      color: #0088ff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 30px;
+    }
+
+    .form-title .bullet {
+      font-size: 10px;
+      vertical-align: middle;
+      margin: 0 4px;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 22px;
+    }
+
+    .required-asterisk {
+      position: absolute;
+      left: -12px;
+      top: 6px;
+      color: #0088ff;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .underline-input {
+      width: 100%;
+      border: none;
+      border-bottom: 1.5px solid #00c9a7;
+      padding: 6px 0;
+      font-size: 0.88rem;
+      color: #333333;
+      outline: none;
+      background: transparent;
+      transition: border-color 0.25s ease;
+    }
+
+    .underline-input::placeholder {
+      color: #8fa1b0;
+      font-weight: 400;
+      font-size: 0.88rem;
+    }
+
+    .underline-input:focus {
+      border-bottom-color: #0088ff;
+    }
+
+    .eye-icon {
+      position: absolute;
+      right: 0;
+      top: 8px;
+      width: 18px;
+      height: 18px;
+      fill: #0088ff;
+      pointer-events: none;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 10px;
+      margin-bottom: 24px;
+    }
+
+    .custom-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 13px;
+      height: 13px;
+      border: 1.5px solid #0088ff;
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+      margin-top: 2px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .custom-checkbox:checked {
+      background-color: #0088ff;
+    }
+
+    .custom-checkbox:checked::after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 0px;
+      width: 3px;
+      height: 7px;
+      border: solid white;
+      border-width: 0 1.5px 1.5px 0;
+      transform: rotate(45deg);
+    }
+
+    .terms-text {
+      font-size: 0.65rem;
+      color: #8fa1b0;
+      line-height: 1.35;
+      user-select: none;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px 0;
+      background: linear-gradient(90deg, #00c9a7 0%, #00d2ff 100%);
+      border: none;
+      border-radius: 2px;
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 201, 167, 0.25);
+      transition: opacity 0.2s ease, transform 0.1s ease;
+    }
+
+    .submit-btn:hover {
+      opacity: 0.93;
+    }
+
+    .submit-btn:active {
+      transform: translateY(1px);
+    }
+
+    .footer-text {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #778899;
+      margin-top: 20px;
+    }
+
+    .signin-link {
+      color: #0088ff;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 3px;
+    }
+
+    .signin-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+    <button class="close-btn" aria-label="Close form">&times;</button>
+    
+    <h1 class="form-title">
+      <span class="bullet">▪</span> Registration Form <span class="bullet">▪</span>
+    </h1>
+
+    <form action="#" method="POST" onsubmit="return false;">
+      
+      <!-- Name input -->
+      <div class="form-group">
+        <span class="required-asterisk">*</span>
+        <input type="text" class="underline-input" placeholder="Name" required />
+      </div>
+
+      <!-- Email input -->
+      <div class="form-group">
+        <span class="required-asterisk">*</span>
+        <input type="email" class="underline-input" placeholder="Email address" required />
+      </div>
+
+      <!-- Country input -->
+      <div class="form-group">
+        <input type="text" class="underline-input" placeholder="Country" />
+      </div>
+
+      <!-- Phone input -->
+      <div class="form-group">
+        <span class="required-asterisk">*</span>
+        <input type="tel" class="underline-input" placeholder="Phone" required />
+      </div>
+
+      <!-- Password input with SVG eye icon -->
+      <div class="form-group">
+        <span class="required-asterisk">*</span>
+        <input type="password" class="underline-input" placeholder="Password" style="padding-right: 26px;" required />
+        <svg class="eye-icon" viewBox="0 0 24 24">
+          <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+        </svg>
+      </div>
+
+      <!-- Terms & conditions checkbox -->
+      <div class="checkbox-container">
+        <input type="checkbox" id="terms" class="custom-checkbox" required />
+        <label for="terms" class="terms-text">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+        </label>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="submit-btn">CREATE ACCOUNT</button>
+
+      <!-- Footer sign-in line -->
+      <p class="footer-text">
+        Already have an account? <a href="#" class="signin-link">Sing in</a>
+      </p>
+
+    </form>
+  </div>
+
+</body>
+</html>
